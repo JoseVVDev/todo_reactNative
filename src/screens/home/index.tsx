@@ -1,4 +1,4 @@
-import { Image, View, Text, TextInput } from "react-native";
+import { Image, View, Text, TextInput, TouchableOpacity } from "react-native";
 import { styles } from "./styles";
 import SVGImg from '../../assets/rocket.svg'
 
@@ -13,9 +13,16 @@ export function Home() {
 
             </View>
             <View style={styles.tasksContainer}>
-                <TextInput />
+                <View style={styles.taskInputContainer}>
+                    <TextInput style={styles.taskInput}
+                        placeholder="Adicione uma nova tarefa"
+                        placeholderTextColor="#808080"
+                    />
+                    <TouchableOpacity style={styles.addTaskButton}>
+                        <Text>+</Text>
+                    </TouchableOpacity>
+                </View>
             </View>
-
         </>
     )
 }
