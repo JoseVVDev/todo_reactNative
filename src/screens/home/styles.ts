@@ -6,42 +6,68 @@ export const styles = StyleSheet.create({
         flexDirection: 'row',
         padding: 24,
         alignItems: 'center',
-        justifyContent: 'center'
-    },
-    logoText1: {
-        color: '#4ea8de'
-    },
-    logoText2: {
-        color: '#8284fa'
+        justifyContent: 'center',
     },
     tasksContainer: {
         backgroundColor: '#1a1a1a',
         flex: 4,
         padding: 24,
-        flexDirection: 'row',
+        flexDirection: 'column',
     },
     taskInputContainer: {
-        flex: 1,
+        width: '100%',
         flexDirection: 'row',
         height: 55,
         marginTop: -50,
     },
     taskInput: {
-        padding: 12,
+        height: 55,
         flex: 5,
+        padding: 12,
         backgroundColor: '#262626',
         borderWidth: 1,
         borderRadius: 6,
         borderColor: '#0d0d0d',
+        color: '#f2f2f2',
+        fontFamily: 'Inter_400Regular'
     },
     taskInputText: {},
     addTaskButton: {
+        height: 55,
+        flex: 1,
         borderRadius: 6,
         marginLeft: 5,
-        flex: 1,
         backgroundColor: '#1e6f9f',
         alignItems: 'center',
-        justifyContent: 'center'
+        justifyContent: 'center',
     },
-    addTaskButtonText: {}
+    addTaskButtonText: {
+        color: '#f2f2f2'
+    },
+    taskCounterContainer: {
+        justifyContent: 'space-between',
+        flexDirection: 'row',
+        alignItems: 'center',
+        width: '100%',
+        marginTop: 32
+    },
+    taskCounterText: {
+        fontSize: 14,
+    },
+    taskCounterNumber: {
+        backgroundColor: '#333333',
+        color: '#d9d9d9',
+        borderRadius: 13,
+        paddingVertical: 1,
+        paddingHorizontal: 10,
+        marginLeft: 5
+    },
+    purpleText: {
+        color: '#8284fa',
+        fontFamily: 'Inter_400Regular' 
+    },
+    blueText: {
+        color: '#4ea8de',
+        fontFamily: 'Inter_400Regular' 
+    }
 });
