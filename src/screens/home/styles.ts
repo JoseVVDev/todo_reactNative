@@ -41,9 +41,6 @@ export const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
     },
-    addTaskButtonText: {
-        color: '#f2f2f2'
-    },
     taskCounterContainer: {
         justifyContent: 'space-between',
         flexDirection: 'row',

@@ -1,18 +1,16 @@
 import { styles } from "./styles";
-import { View, Text, TextInput, TouchableOpacity } from "react-native";
-import SVGImg from '../../assets/rocket.svg'
+import { View, Text, TextInput, TouchableHighlight } from "react-native";
+import SVGImg from '../../assets/Logotodo.svg'
 import { useState } from "react";
+import Antdesign from '@expo/vector-icons/AntDesign'
 
 export function Home() {
     const [isFocus, setIsFocus] = useState(false)
+
      return (
         <>
             <View style={styles.container}>
-                <SVGImg width={20} height={20} />
-                <Text style={[styles.blueText]}>
-                    to<Text style={styles.purpleText}>do</Text>
-                </Text>
-
+                <SVGImg width={150} height={150} />
             </View>
             <View style={styles.tasksContainer}>
                 <View style={styles.taskInputContainer}>
@@ -22,9 +20,14 @@ export function Home() {
                         onFocus={() => setIsFocus(true)}
                         onBlur={() => setIsFocus(false)}
                     />
-                    <TouchableOpacity style={styles.addTaskButton}>
-                        <Text style={styles.addTaskButtonText}>+</Text>
-                    </TouchableOpacity>
+                    <TouchableHighlight 
+                        style={styles.addTaskButton}
+                        //precisa do onPress para o underlayColor funcionar. Referência:(https://github.com/facebook/react-native/issues/14908)
+                        onPress={() => {}}
+                        underlayColor={'#4ea8de'}
+                    >
+                        <Antdesign name="pluscircleo" size={18} color='white'/>
+                    </TouchableHighlight>
                 </View>
                 <View style={styles.taskCounterContainer}>
                     <View style={{flexDirection: 'row'}}>
@@ -33,7 +36,7 @@ export function Home() {
                     </View>
                     <View style={{flexDirection: 'row'}}>
                         <Text style={[styles.taskCounterText, styles.purpleText]}>Concluídas</Text>
-                        <Text style={styles.taskCounterNumber}>0</Text>
+                        <Text style={styles.taskCounterNumber}>5</Text>
                     </View>
                 </View>
             </View>
