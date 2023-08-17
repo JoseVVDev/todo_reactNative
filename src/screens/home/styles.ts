@@ -46,7 +46,8 @@ export const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         width: '100%',
-        marginTop: 32
+        marginTop: 32,
+        marginBottom: 20
     },
     taskCounterText: {
         fontSize: 14,
@@ -57,14 +58,40 @@ export const styles = StyleSheet.create({
         borderRadius: 13,
         paddingVertical: 1,
         paddingHorizontal: 10,
-        marginLeft: 5
+        marginLeft: 10,
+        fontSize: 12,
+        fontFamily: 'Inter_700Bold',
+        alignSelf: 'center',
+    },
+    noTasks: {
+        borderTopColor: '#333333',
+        color: '#333333',
+        borderTopWidth: 1,
+        width: '100%',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+        padding: 20,
+        paddingTop: 50,
+        flexWrap: 'nowrap'
+    },
+    noTasksText1: {
+        marginTop: 24,
+        color: '#808080',
+        fontFamily: 'Inter_700Bold',
+        fontSize: 14
+    },
+    noTasksText2: {
+        color: '#808080',
+        fontFamily: 'Inter_400Regular',
+        fontSize: 14
     },
     purpleText: {
         color: '#8284fa',
-        fontFamily: 'Inter_400Regular' 
+        fontFamily: 'Inter_700Bold' 
     },
     blueText: {
         color: '#4ea8de',
-        fontFamily: 'Inter_400Regular' 
+        fontFamily: 'Inter_700Bold' 
     }
 });
