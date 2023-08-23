@@ -7,7 +7,9 @@ import Ionicons from '@expo/vector-icons/Ionicons'
 interface taskProps {
     id: string,
     description: string,
-    concluded: boolean
+    concluded: boolean,
+    handleConcluded: (id: string) => void
+    handleDelete: (id: string) => void
 }
 
 export function Task(props: taskProps) {
@@ -18,7 +20,10 @@ export function Task(props: taskProps) {
             <View style={styles.radioContainer}>
                 <TouchableHighlight
                     style={[radio.style, pressed ? radio.concluded : radio.notConcluded]}
-                    onPress={() => setPressed(!pressed)}
+                    onPress={() => {
+                        setPressed(!pressed);
+                        props.handleConcluded(props.id)
+                    }}
                     underlayColor={pressed ? '#8284FA' : '#1E6F9F'}>
                     {pressed ? <Antdesign name="check" size={12} color='white' /> : <Text></Text>}
                 </TouchableHighlight>
@@ -29,7 +34,7 @@ export function Task(props: taskProps) {
             <View style={styles.removeContainer}>
                 <TouchableHighlight
                     style={styles.removeButton}
-                    onPress={() => { }}
+                    onPress={() => {props.handleDelete(props.id)}}
                     onPressIn={() => setPressedRemove(!pressedRemove)}
                     onPressOut={() => setPressedRemove(!pressedRemove)}
                     underlayColor='#333333'

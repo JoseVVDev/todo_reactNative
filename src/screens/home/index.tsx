@@ -16,22 +16,26 @@ interface taskProps {
 export function Home() {
     const [isFocus, setIsFocus] = useState(false)
     const [newDescription, setNewDescription] = useState('')
-    const [tasks, setTasks] = useState<taskProps[]>([
-        {id: '123', description:'Testando olá mundo', concluded: false},
-        {id: '123456', description:'Testando olá mundo de novo', concluded: false},
-        {id: '123456789', description:'Testando olá mundo novamente', concluded: false}
-    ])
+    const [tasks, setTasks] = useState<taskProps[]>([])
 
     function handleNewTask() {
         setTasks([
             ...tasks,
             {
-                id: generateUUID(12), 
-                description: newDescription, 
+                id: generateUUID(12),
+                description: newDescription,
                 concluded: false
             }
         ])
         setNewDescription('')
+    }
+
+    function handleConcludeTask(id: string) {
+        setTasks(tasks.map(task => task.id === id ? { ...task, concluded: !task.concluded } : task))
+    }
+
+    function handleDeletetask(id: string) {
+        setTasks(tasks.filter(task => task.id !== id))
     }
     return (
         <>
@@ -51,7 +55,7 @@ export function Home() {
                     <TouchableHighlight
                         style={styles.addTaskButton}
                         //precisa do onPress para o underlayColor funcionar. Referência:(https://github.com/facebook/react-native/issues/14908)
-                        onPress={() => {newDescription ? handleNewTask() : {}}}
+                        onPress={() => { newDescription ? handleNewTask() : {} }}
                         underlayColor={'#4ea8de'}
                     >
                         <Antdesign name="pluscircleo" size={18} color='white' />
@@ -72,7 +76,16 @@ export function Home() {
                     <View style={styles.hasTasks}>
                         {
                             tasks.map((task) => {
-                                return <Task key={task.id} id={task.id} description={task.description} concluded={task.concluded} />
+                                return (
+                                    <Task
+                                        key={task.id}
+                                        id={task.id}
+                                        description={task.description}
+                                        concluded={task.concluded}
+                                        handleConcluded={handleConcludeTask}
+                                        handleDelete={handleDeletetask}
+                                    />
+                                )
                             })
                         }
                     </View>
