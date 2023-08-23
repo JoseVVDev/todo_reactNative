@@ -4,7 +4,13 @@ import { useState } from "react";
 import Antdesign from '@expo/vector-icons/AntDesign'
 import Ionicons from '@expo/vector-icons/Ionicons'
 
-export function Task() {
+interface taskProps {
+    id: string,
+    description: string,
+    concluded: boolean
+}
+
+export function Task(props: taskProps) {
     const [pressed, setPressed] = useState(false)
     const [pressedRemove, setPressedRemove] = useState(false)
     return (
@@ -18,7 +24,7 @@ export function Task() {
                 </TouchableHighlight>
             </View>
             <Text style={[styles.textContainer, pressed ? {textDecorationLine: 'line-through', textDecorationStyle: 'solid', color: '#808080'} : {}]} numberOfLines={2}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sed bibendum magna. In congue consequat lectus a venenatis. Nunc rutrum luctus erat a fermentum. Donec at ornare orci.
+                {props.description}
             </Text>
             <View style={styles.removeContainer}>
                 <TouchableHighlight

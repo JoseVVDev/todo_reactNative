@@ -86,6 +86,9 @@ export const styles = StyleSheet.create({
         fontFamily: 'Inter_400Regular',
         fontSize: 14
     },
+    hasTasks: {
+        gap: 10
+    },
     purpleText: {
         color: '#8284fa',
         fontFamily: 'Inter_700Bold' 
